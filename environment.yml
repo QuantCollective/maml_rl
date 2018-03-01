@@ -7,7 +7,7 @@ channels:
     - jjhelmus
 dependencies:
     - python==3.5.2
-    - numpy==1.10.4
+    - numpy
     - scipy
     - path.py
     - python-dateutil
