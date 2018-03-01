@@ -15,11 +15,11 @@ import numpy as np
 import pickle
 import tensorflow as tf
 
-file1 = 'data/s3/bugfix-trpo-maml-cheetah200/maml1_fbs10_mbs40_flr_0.1_mlr0.01/itr_475.pkl'
-file2 = 'data/s3/bugfix-trpo-maml-cheetah200/randenv/itr_475.pkl'
-file3 = 'data/s3/bugfix-trpo-maml-cheetah200/oracleenv/itr_975.pkl'
+file1 = 'data/local/trpo-maml-cheetah200/maml1_fbs20_mbs40_flr_0.1_mlr0.01/itr_100.pkl'
+file2 = 'data/local/trpo-maml-cheetah200/maml1_fbs20_mbs40_flr_0.1_mlr0.01/itr_50.pkl'
+file3 = 'data/local/trpo-maml-cheetah200/maml1_fbs20_mbs40_flr_0.1_mlr0.01/itr_0.pkl'
 
-make_video = False  # generate results if False, run code to make video if True
+make_video = True  # generate results if False, run code to make video if True
 run_id = 1  # for if you want to run this script in multiple terminals (need to have different ids)
 
 if not make_video:
@@ -111,10 +111,11 @@ for step_i, initial_params_file in zip(range(len(step_sizes)), initial_params_fi
         if make_video:
             data_loc = 'data/local/cheetah-test/test'+str(run_id)+'/'
             save_loc = 'data/local/cheetah-test/test/'
+            import os
+            os.mkdir(save_loc)
             param_file = initial_params_file
             save_prefix = save_loc + names[step_i] + '_goal_' + str(goal)
             video_filename = save_prefix + 'prestep.' + file_ext
-            import os
             os.system('python scripts/sim_policy.py ' + param_file + ' --speedup=4 --max_path_length=500 --video_filename='+video_filename)
             for itr_i in range(3):
                 param_file = data_loc + 'itr_' + str(itr_i)  + '.pkl'
