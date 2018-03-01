@@ -1,7 +1,7 @@
 name: rllab3
 channels:
-    - https://conda.anaconda.org/kne 
-    - https://conda.binstar.org/tlatorre 
+    - https://conda.anaconda.org/kne
+    - https://conda.binstar.org/tlatorre
     - https://conda.anaconda.org/cjs14
     - https://conda.anaconda.org/menpo
     - jjhelmus
@@ -22,10 +22,9 @@ dependencies:
     - matplotlib
     - opencv3=3.1.0
     - scikit-learn
-    - tensorflow
     - pip:
         - Pillow
-        - atari-py
+        # - atari-py
         - pyprind
         - ipdb
         - boto3
@@ -33,7 +32,7 @@ dependencies:
         - nose2
         - pyzmq
         - msgpack-python
-        - mujoco_py
+        # - mujoco_py
         - cached_property
         - line_profiler
         - Cython
@@ -47,3 +46,4 @@ dependencies:
         - jupyter
         - progressbar2
         - chainer==1.15.0
+        - tensorflow
